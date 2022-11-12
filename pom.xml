@@ -16,6 +16,14 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -33,6 +41,10 @@
                 </executions>
             </plugin>
             <plugin>
+                <!--Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/commons/lang3/StringUtils
+        at HelloWorld.main(HelloWorld.java:10)
+        Thin jar so dependency jar must be copied to target
+-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <!--                <version>2.4</version>-->
